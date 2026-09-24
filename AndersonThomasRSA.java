@@ -13,6 +13,14 @@ public class AndersonThomasRSA
 		// Must implement Euclid's algorithm
 		// NO brute-forcing; violation will lead to zero points
 		// NO recursion; violation will lead to zero points
+		int d1 = inE;
+
+		int d2 = inZ;
+
+		int q = Math.floorDiv(d1, d2);
+
+
+		return 0;
 	}
 
 	public void testGcd () {
@@ -39,6 +47,7 @@ public class AndersonThomasRSA
 		// Must implement the extended Euclidean algorithm
 		// NO brute-forcing; violation will lead to zero points
 		// NO recursion; violation will lead to zero points
+		return 0;
 	}
 
 	public void testXgcd () {
@@ -55,6 +64,7 @@ public class AndersonThomasRSA
 
 	public int[] keygen (int inP, int inQ, int inE) {
 		// TO BE FINISHED
+		return new int[0];
 	}
 
 	//
@@ -78,14 +88,17 @@ public class AndersonThomasRSA
 	//
 	public int modExp (int a, int b, int n) {
 		// TO BE FINISHED
+		return 0;
 	}
 
 	public int encrypt (int message, int inE, int inN) {
 		// TO BE FINISHED
+		return 0;
 	}
 
 	public int decrypt (int ciphertext, int inD, int inN) {
 		// TO BE FINISHED
+		return 0;
 	}
 
 	public void testRSA () {
