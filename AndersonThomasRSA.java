@@ -114,11 +114,11 @@ public class AndersonThomasRSA
 				inE = randomE;
 			}
 		}
-		if (inE > 1 && inE < inZ){
-			if(gcd(inE, inZ) != 1){
-				System.out.println("ERROR");
-				return null;
-			}
+		if (inE > 1){
+    		if (inE >= inZ || gcd(inE, inZ) != 1){
+        		System.out.println("ERROR");
+        		return null;
+    		}
 		}
 
 		inD = xgcd(inE, inZ);
@@ -146,10 +146,10 @@ public class AndersonThomasRSA
 			int t = y % 2;
 			y = y/2;
 			if (t == 1){
-				long xLong = x * w;
+				long xLong = (long) x * w;
 				x = (int) (xLong % n);
 			}
-			long wLong = w * w;
+			long wLong = (long) w * w;
 			w = (int) (wLong % n);
 		}
 		return x;
