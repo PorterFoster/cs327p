@@ -17,10 +17,16 @@ public class AndersonThomasRSA
 
 		int d2 = inZ;
 
-		int q = Math.floorDiv(d1, d2);
+		while (d2 != 0) {
+			
+			int q = Math.floorDiv(d1, d2);
+			int r = d1 -(q * d2);
 
+			d1 = d2;
+			d2 = r;
+		}
 
-		return 0;
+		return Math.abs(d1);
 	}
 
 	public void testGcd () {
