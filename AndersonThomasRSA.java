@@ -9,10 +9,6 @@ import java.util.Random;
 public class AndersonThomasRSA
 {
 	public int gcd (int inE, int inZ) {
-		// TO BE FINISHEDS
-		// Must implement Euclid's algorithm
-		// NO brute-forcing; violation will lead to zero points
-		// NO recursion; violation will lead to zero points
 		int d1 = inE;
 
 		int d2 = inZ;
@@ -49,11 +45,6 @@ public class AndersonThomasRSA
 	//	inverse of inE mod inZ
 	//
 	public int xgcd (int inE, int inZ) {
-		// TO BE FINISHED
-		// Must implement the extended Euclidean algorithm
-		// NO brute-forcing; violation will lead to zero points
-		// NO recursion; violation will lead to zero points
-
 		int d1 = inZ;
 		int d2 = inE;
 		int s1 = 1;
@@ -146,14 +137,6 @@ public class AndersonThomasRSA
 		System.out.println ("d = 0x" + Integer.toString(keypair[2], 16));
 	}
 
-	//
-	// Calculate c = a^b mod n, with the square-and-multiply algorithm
-	//
-	// The following method implements the square-and-multiply algorithm, with Java primitive types
-	//
-	// Note that even with primitive types, a^b may well exceed the range of Java int
-	// For example, 5^20 is too big to be held by a Java primitive integer
-	//
 	public int modExp (int a, int b, int n) {
 		int x = 1;
 		int w = a;
@@ -173,13 +156,12 @@ public class AndersonThomasRSA
 	}
 
 	public int encrypt (int message, int inE, int inN) {
-		// TO BE FINISHED
-		return 0;
+		return modExp(message, inE, inN);
 	}
 
 	public int decrypt (int ciphertext, int inD, int inN) {
-		// TO BE FINISHED
-		return 0;
+
+		return modExp(ciphertext, inD, inN);
 	}
 
 	public void testRSA () {
