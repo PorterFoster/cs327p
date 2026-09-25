@@ -102,8 +102,37 @@ public class AndersonThomasRSA
 	}
 
 	public int[] keygen (int inP, int inQ, int inE) {
-		// TO BE FINISHED
-		return new int[0];
+		int inN;
+		int inZ;
+		int inD;
+		int z1 = inP - 1;
+		int z2 = inQ - 1;
+		inN = inP * inQ;
+		inZ = z1 * z2;
+
+		Random random = new Random();
+		int min = 2;
+		int max = inZ;
+
+		if (inE <= 1){
+			int randomE = random.nextInt(min, max);
+			inE = randomE;
+
+			while (gcd(inE, inZ) != 1){
+				randomE = random.nextInt(min, max);
+				inE = randomE;
+			}
+		}
+		if (inE > 1 && inE < inZ){
+			if(gcd(inE, inZ) != 1){
+				System.out.println("ERROR");
+				return null;
+			}
+		}
+
+		inD = xgcd(inE, inZ);
+		int[] keys = {inE, inN, inD};
+		return keys;
 	}
 
 	//
