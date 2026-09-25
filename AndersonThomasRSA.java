@@ -9,7 +9,7 @@ import java.util.Random;
 public class AndersonThomasRSA
 {
 	public int gcd (int inE, int inZ) {
-		// TO BE FINISHED
+		// TO BE FINISHEDS
 		// Must implement Euclid's algorithm
 		// NO brute-forcing; violation will lead to zero points
 		// NO recursion; violation will lead to zero points
@@ -53,7 +53,40 @@ public class AndersonThomasRSA
 		// Must implement the extended Euclidean algorithm
 		// NO brute-forcing; violation will lead to zero points
 		// NO recursion; violation will lead to zero points
-		return 0;
+
+		int d1 = inZ;
+		int d2 = inE;
+		int s1 = 1;
+		int s2 = 0;
+		int t1 = 0;
+		int t2 = 1;
+
+		while (d2 != 0){
+			//calculates new d2
+			int q = Math.floorDiv(d1, d2);
+			int r = d1 -(q * d2);
+
+			d1 = d2;
+			d2 = r;
+
+			//calculates new t2
+			int remainderT = t1 -(q * t2);
+			t1 = t2;
+			t2 = remainderT;
+
+			//Calculates new s2
+			int remainderS = s1 - (q * s2);
+			s1 = s2;
+			s2 = remainderS;
+		}
+		if (d1 != 1){
+			return -1;
+		}
+		while (t1 < 0){
+			t1 += inZ;
+		}
+
+		return Math.abs(t1);
 	}
 
 	public void testXgcd () {
