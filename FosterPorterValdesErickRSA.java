@@ -6,7 +6,7 @@ import java.util.Random;
  * 
  */
 
-public class AndersonThomasRSA
+public class FosterPorterValdesErickRSA
 {
 	public int gcd (int inE, int inZ) {
 		int d1 = inE;
@@ -181,7 +181,7 @@ public class AndersonThomasRSA
 	}
 
 	public static void main (String[] args) {
-		AndersonThomasRSA atrsa = new AndersonThomasRSA ();
+		FosterPorterValdesErickRSA atrsa = new FosterPorterValdesErickRSA ();
 
 		System.out.println ("********** Small RSA Project output begins ********** ");
 
