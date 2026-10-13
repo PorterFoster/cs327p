@@ -81,7 +81,7 @@ public class FosterPorterValdesErickRSA
 	}
 
 	public void testXgcd () {
-		int result1 = xgcd (29, 288);
+		int result1 = xgcd (23, 120);
 		int result2 = xgcd (30, 288);
 		int result3 = xgcd (149, 288);
 		int result4 = xgcd (2, 4);
