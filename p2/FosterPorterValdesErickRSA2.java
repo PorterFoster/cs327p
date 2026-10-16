@@ -118,8 +118,14 @@ public class FosterPorterValdesErickRSA2 {
         // PART 4 - DECRYPTION SPEED TESTS
         System.out.println("\n===== DECRYPTION SPEED TESTS =====");
 
-        rsa.rsaDecryptionSpeed();
-        rsa.crtDecryptionSpeed();
+        double rsaTime = rsa.rsaDecryptionSpeed();
+        double crtTime = rsa.crtDecryptionSpeed();
+
+        double speed = rsaTime / crtTime;
+
+        System.out.println("CRT speed is " + speed + " times faster than regular RSA decryption speed.");
+
+
 
         /*System.out.println("PART 2 of Project");
         System.out.println("RSA Decryptions took x milliseconds");
@@ -168,7 +174,7 @@ public class FosterPorterValdesErickRSA2 {
         return m2.add(h.multiply(q));
     }
 
-    public void rsaDecryptionSpeed() {
+    public double rsaDecryptionSpeed() {
         // Question 6 - RSA Decryption Speed
 
         BigInteger n = genPubKey();
@@ -189,11 +195,14 @@ public class FosterPorterValdesErickRSA2 {
 
         double kbps = bps / 1000.0;
 
-        System.out.println("Total time = " + totalTime + " seconds");
+        System.out.println("RSA Decryptions took " + (totalTime * 1000) + " milliseconds");
         System.out.println("RSA decryption speed = " + kbps + " kbps");
+        System.out.println("This speed is slower than gigabit/second Internet speed.");
+
+        return totalTime;
     }
 
-    public void crtDecryptionSpeed() {
+    public double crtDecryptionSpeed() {
         // Question 7 - CRT Decryption Speed
 
         BigInteger n = genPubKey();
@@ -220,8 +229,11 @@ public class FosterPorterValdesErickRSA2 {
 
         double kbps = bps / 1000.0;
 
-        System.out.println("CRT total time = " + totalTime + " seconds");
-        System.out.println("CRT decryption speed = " + kbps + " kbps");
-    }
+        double gbps = kbps/ 1000000.0;
 
+        System.out.println("CRT decryptions took " + (totalTime * 1000) + " milliseconds");
+        System.out.println("CRT decryption speed = " + kbps + " kbps");
+        System.out.println("The CRT speed is " + gbps + " gigabit/second");
+        return totalTime;
+    }
 }
