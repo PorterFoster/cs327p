@@ -176,13 +176,15 @@ public class FosterPorterValdesErickHillCipher{
         System.out.println(decryptionKey[0][0] + " " + decryptionKey[0][1]);
         System.out.println(decryptionKey[1][0] + " " + decryptionKey[1][1]);
 
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
         //encrypt plaintext
         int[] plaintext = {9, 12, 20, 2, 18, 8, 18, 2, 14, 14, 11};
         int[] ciphertext = hillCipher.encrypt(plaintext, encryptionKey);
 
         System.out.println("Encrypted Message:");
         for (int i = 0; i < ciphertext.length; i++){
-            System.out.print(ciphertext[i] + " ");
+            System.out.print(alphabet.charAt(ciphertext[i]));
         }
         System.out.println();
 
@@ -192,7 +194,7 @@ public class FosterPorterValdesErickHillCipher{
 
         System.out.println("Decrypted Message:");
         for (int i = 0; i < decrypted.length; i++){
-            System.out.print(decrypted[i] + " ");
+            System.out.print(alphabet.charAt(decrypted[i]));
         }
         System.out.println();
         }
